@@ -15,7 +15,7 @@ public class Main {
         Gene[] newGenFinal = null;
         boolean isFirstTime = true;
         first = new ProblemSolver(problemGrid);
-        int[][] xx = first.firstPopulation(5000);
+        int[][] xx = first.firstPopulation(2000);
         //printGrid(xx);
 
 
@@ -63,9 +63,9 @@ public class Main {
     }
 
     private static int[][] getFromKeyboard() {
-        int[][] x = new int[10][10];
-        for(int i=0;i<10;i++)
-            for(int j=0;j<10;j++)
+        int[][] x = new int[CONSTANTS.MAX_SIZE][CONSTANTS.MAX_SIZE];
+        for(int i=0;i<CONSTANTS.MAX_SIZE;i++)
+            for(int j=0;j<CONSTANTS.MAX_SIZE;j++)
         {
             x[i][j] = src.nextInt();
         }
@@ -75,15 +75,15 @@ public class Main {
     private static int[][] getFromFile() {
         Scanner scanner = null;
         try {
-            scanner = new Scanner(new File("input.txt"));
+            scanner = new Scanner(new File("input30.txt"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        int x[][] = new int[10][10];;
+        int x[][] = new int[CONSTANTS.MAX_SIZE][CONSTANTS.MAX_SIZE];;
         int i=0, j=0;
 
         while(scanner.hasNextInt()){
-            while(j<10)
+            while(j<CONSTANTS.MAX_SIZE)
                 x[i][j++] = scanner.nextInt();
             j = 0;
             i++;

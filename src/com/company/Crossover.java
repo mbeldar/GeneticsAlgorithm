@@ -33,7 +33,7 @@ public class Crossover {
     public void execute() {
         if(type==1){
             Random rand = new Random();
-            int windowsSize = rand.nextInt(3)+3;
+            int windowsSize = rand.nextInt(CONSTANTS.WINDOW_SIZE_LIMIT)+3;
             int startPt = rand.nextInt(first.getSequence().length-windowsSize);
 
             int[] part1 = Arrays.copyOfRange(first.getSequence(),startPt,startPt+windowsSize);
@@ -92,7 +92,7 @@ public class Crossover {
             if(c1.isValidGene()||c2.isValidGene())
             {}else{
                 try {
-                    throw new Exception("INVALID GENE CREATED");
+                    throw new Exception("INVALID GENE CREATED"+c1.toString());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

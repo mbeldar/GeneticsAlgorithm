@@ -14,10 +14,10 @@ public class ProblemSolver {
 
 
     public int[][] firstPopulation(int n){
-        int[][] p = new int[n][10];
+        int[][] p = new int[n][CONSTANTS.MAX_SIZE];
         for(int i=0;i<n;i++)
         {
-            for (int j=0;j<10;j++){
+            for (int j=0;j<CONSTANTS.MAX_SIZE;j++){
                 p[i][j]=j;
             }
             p[i] = shuffleArray(p[i]);
@@ -136,11 +136,11 @@ public class ProblemSolver {
                 Gene child1 = crossover.getFirstChild();
                 Gene child2 = crossover.getSecondChild();
 
-                //newGeneration[count++] = genesFromTournament[firstParent];
+                newGeneration[count++] = genesFromTournament[firstParent];
                 //newGeneration[count++] = genesFromTournament[secondParent];
-                newGeneration[count++] = child1;
+                //newGeneration[count++] = child1;
                 newGeneration[count++] = child2;
-              //  System.out.println(count);
+                System.out.println(count);
 
             }
         }
@@ -154,8 +154,8 @@ public class ProblemSolver {
         Random rand = new Random();
         for(int i=0;i<newGen.length;i++){
            // System.out.println(Arrays.toString(newGen[i].sequence));
-            int f = rand.nextInt(10);
-            int s = rand.nextInt(10);
+            int f = rand.nextInt(CONSTANTS.MAX_SIZE);
+            int s = rand.nextInt(CONSTANTS.MAX_SIZE);
             int t = newGen[i].sequence[f];
             newGen[i].sequence[f] = newGen[i].sequence[s];
             newGen[i].sequence[s] = t;
